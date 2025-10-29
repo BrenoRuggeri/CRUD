@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carteiras - Sistema CRUD</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ========================= -->
+  <!-- Header -->
+  <!-- ========================= -->
+  <header class="header">
+    <div class="container header-content">
+      <a href="#" class="logo">Sistema CRUD</a>
+      <div class="header-buttons">
+        <a href="index.html" class="btn btn-outline" id="registerBtn">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================= -->
+  <!-- Main Content -->
+  <!-- ========================= -->
+  <main class="main">
+    <div class="container">
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1>Gerenciamento de Carteiras</h1>
+        <p>Sistema completo de gerenciamento de carteiras - Create, Read, Update, Delete</p>
+      </section>
+
+      <!-- ========================= -->
+      <!-- Formulário de Cadastro de Carteira -->
+      <!-- ========================= -->
+      <div class="card">
+        <div class="card-title">
+          <span>Cadastrar Nova Carteira</span>
+        </div>
+        <form id="carteiraForm">
+          <div class="form-group">
+            <label class="form-label" for="idUsuario">ID do Usuário</label>
+            <input type="number" id="idUsuario" name="idUsuario" class="form-input" placeholder="Digite o ID do usuário" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nomeCarteira">Nome da Carteira</label>
+            <input type="text" id="nomeCarteira" name="nomeCarteira" class="form-input" placeholder="Ex: Carteira Conservadora, Dividendos" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="descricaoCarteira">Descrição</label>
+            <textarea id="descricaoCarteira" name="descricaoCarteira" class="form-input form-textarea" placeholder="Descreva o objetivo e estratégia da carteira" rows="4" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-submit">Cadastrar Carteira</button>
+        </form>
+      </div>
+
+      <!-- ========================= -->
+      <!-- Formulário de Edição de Carteira -->
+      <!-- ========================= -->
+      <div class="card">
+        <div class="card-title">
+          <span>Editar Carteira</span>
+        </div>
+        <form id="formEdicaoCarteira">
+          <div class="form-group">
+            <label class="form-label" for="editIdCarteira">ID da Carteira</label>
+            <input type="number" id="editIdCarteira" name="editIdCarteira" class="form-input" placeholder="Digite o ID da carteira a editar" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editNome">Nome da Carteira</label>
+            <input type="text" id="editNome" name="editNome" class="form-input" placeholder="Digite o novo nome" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editDescricao">Descrição</label>
+            <textarea id="editDescricao" name="editDescricao" class="form-input form-textarea" placeholder="Digite a nova descrição" rows="4" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-submit">Editar</button>
+        </form>
+      </div>
+
+      <!-- ========================= -->
+      <!-- Tabela de Carteiras -->
+      <!-- ========================= -->
+      <div class="card">
+        <div class="card-title">
+          <span>Carteiras Cadastradas</span>
+          <span id="totalCarteiras" style="font-size: 1rem; color: var(--color-accent);">0 carteiras</span>
+        </div>
+
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" id="selectAllCarteiras"></th>
+                <th>ID Carteira</th>
+                <th>ID Usuário</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Data de Criação</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaCarteiras">
+              <tr>
+                <td colspan="6" class="empty-state">
+                  Nenhuma carteira cadastrada ainda. Use o formulário acima para adicionar.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-delete" id="btnDeletarCarteira">Excluir Selecionados</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================= -->
+  <!-- Footer -->
+  <!-- ========================= -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Sistema CRUD. Desenvolvido para demonstração acadêmica.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

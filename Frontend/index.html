@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nebula Broker - Simulador de Homebroker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+
+<header class="header">
+  <div class="container header-content">
+    <a href="#" class="logo">Nebula Broker</a>
+    <nav class="header-buttons">
+      <a href="registro.html" class="btn btn-outline" id="registerBtn">Registrar</a>
+      <button type="button" class="btn" id="loginBtn">Login</button>
+    </nav>
+  </div>
+</header>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="container">
+      <!-- Hero -->
+      <section class="hero">
+        <h1>Simulador de Homebroker</h1>
+        <p>Dados fictícios para fins educacionais</p>
+      </section>
+
+      <!-- Dashboard Grid -->
+      <div class="grid grid-2">
+        <!-- Watchlist -->
+        <div class="card">
+          <div class="card-title">
+            <h2>Watchlist</h2>
+            <span class="text-sm" id="lastUpdate">Última atualização: --:--</span>
+          </div>
+          <div class="table-container">
+            <table class="table" id="watchlistTable">
+              <thead>
+                <tr>
+                  <th>Símbolo</th>
+                  <th>Preço</th>
+                  <th>Variação %</th>
+                  <th>Abertura</th>
+                </tr>
+              </thead>
+              <tbody id="watchlistBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="card">
+          <div class="card-title">
+            <h2>Gráfico</h2>
+            <select id="symbolSelect"></select>
+          </div>
+          <div class="chart-container">
+            <canvas id="priceChart" class="chart-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book -->
+      <div class="card">
+        <div class="card-title">
+          <h2>Book de Ofertas</h2>
+          <span class="text-sm" id="bookSymbol">PETR4</span>
+        </div>
+        <div class="book-container">
+          <div class="book-side">
+            <div class="book-title">Compra (Bids)</div>
+            <div id="bidsContainer"></div>
+          </div>
+          <div class="book-side">
+            <div class="book-title">Venda (Asks)</div>
+            <div id="asksContainer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Section -->
+      <section class="team-section">
+        <h2 class="text-2xl font-semibold text-center">Equipe de Desenvolvimento</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="team-photo">
+              <img src="/img/rhuan.jpeg" alt="">
+            </div>
+            <div class="team-links">
+              <a href="https://www.linkedin.com/in/rhuan-jhonnatan-duarte-1144aa34b/" class="team-link">LinkedIn</a>
+              <a href="https://github.com/RhuanJhonnatan" class="team-link">GitHub</a>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="team-photo">
+              <img src="/img/breno.jpeg" alt="Foto 2">
+            </div>
+            <div class="team-links">
+              <a href="https://www.linkedin.com/in/brenoruggeri/" class="team-link">LinkedIn</a>
+              <a href="https://github.com/BrenoRuggeri" class="team-link">GitHub</a>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="team-photo">
+              <img src="/img/miguel.jpeg" alt="">
+            </div>
+            <div class="team-links">
+              <a href="https://www.linkedin.com/in/miguel-dur%C3%A3es-bueno-273765350/" class="team-link">LinkedIn</a>
+              <a href="https://github.com/miguelito368" class="team-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Nebula Broker. Aplicação educacional com dados simulados.</p>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <div class="modal" id="loginModal"></div>
+  <div class="modal" id="registerModal"></div>
+
+  <script src="script.js"></script>
+  <script src="animacoesFront.js"></script>
+</body>
+</html>
+

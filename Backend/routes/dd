@@ -1,0 +1,66 @@
+
+//======================================
+// ROTA GET - Obter todas as ações nas 
+// carteiras
+//======================================
+
+app.get("/carteira_acoes", (req, res) => {
+  const sql = `
+    SELECT ca.id_carteira, c.nome AS nome_carteira, ca.id_acao, a.codigo, a.nome AS nome_acao, ca.quantidade, ca.preco_medio, ca.data_compra
+    FROM Carteira_acao ca
+    JOIN Carteira c ON ca.id_carteira = c.id_carteira
+    JOIN Acao a ON ca.id_acao = a.id_acao
+  `;
+  db.query(sql, (err, results) => {
+    if (err) return res.status(500).json({ erro: "Erro ao consultar carteira_acoes" });
+    res.json(results);
+  });
+});
+
+//======================================
+// ROTA POST - Adicionar ação à carteira
+//======================================
+
+app.post("/carteira_acoes", (req, res) => {
+  const { id_carteira, id_acao, quantidade, preco_medio, data_compra } = req.body;
+  if (!id_carteira || !id_acao || !quantidade || !preco_medio) 
+    return res.status(400).json({ erro: "id_carteira, id_acao, quantidade e preco_medio são obrigatórios" });
+
+  const sql = "INSERT INTO Carteira_acao (id_carteira, id_acao, quantidade, preco_medio, data_compra) VALUES (?, ?, ?, ?, ?)";
+  db.query(sql, [id_carteira, id_acao, quantidade, preco_medio, data_compra || null], (err, result) => {
+    if (err) return res.status(500).json({ erro: "Erro ao adicionar ação à carteira" });
+    res.status(201).json({ mensagem: "Ação adicionada à carteira com sucesso" });
+  });
+});
+
+//======================================
+// ROTA PUT - Atualizar ação na carteira
+//======================================
+
+app.put("/carteira_acoes", (req, res) => {
+  const { id_carteira, id_acao, quantidade, preco_medio, data_compra } = req.body;
+  if (!id_carteira || !id_acao) return res.status(400).json({ erro: "id_carteira e id_acao são obrigatórios" });
+
+  const sql = "UPDATE Carteira_acao SET quantidade = ?, preco_medio = ?, data_compra = ? WHERE id_carteira = ? AND id_acao = ?";
+  db.query(sql, [quantidade, preco_medio, data_compra || null, id_carteira, id_acao], (err, result) => {
+    if (err) return res.status(500).json({ erro: "Erro ao atualizar ação na carteira" });
+    if (result.affectedRows === 0) return res.status(404).json({ erro: "Registro não encontrado" });
+    res.json({ mensagem: "Ação atualizada na carteira com sucesso" });
+  });
+});
+
+//======================================
+// ROTA DELETE - Remover ação da carteira
+//======================================
+
+app.delete("/carteira_acoes", (req, res) => {
+  const { id_carteira, id_acao } = req.body;
+  if (!id_carteira || !id_acao) return res.status(400).json({ erro: "id_carteira e id_acao são obrigatórios" });
+
+  const sql = "DELETE FROM Carteira_acao WHERE id_carteira = ? AND id_acao = ?";
+  db.query(sql, [id_carteira, id_acao], (err, result) => {
+    if (err) return res.status(500).json({ erro: "Erro ao remover ação da carteira" });
+    if (result.affectedRows === 0) return res.status(404).json({ erro: "Registro não encontrado" });
+    res.json({ mensagem: "Ação removida da carteira com sucesso" });
+  });
+});

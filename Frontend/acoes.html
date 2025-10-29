@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ações - Sistema CRUD</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-content">
+      <a href="#" class="logo">Sistema CRUD</a>
+      <div class="header-buttons">
+        <a href="carteira.html" class="btn btn-outline" id="registerBtn">Carteira</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1>Gerenciamento de Ações</h1>
+        <p>Sistema completo de gerenciamento de ações - Create, Read, Update, Delete</p>
+      </section>
+
+      <!-- Formulário de Cadastro de Ações -->
+      <div class="card">
+        <div class="card-title">
+          <span>Cadastrar Nova Ação</span>
+        </div>
+        <form id="acoesForm">
+          <div class="form-group">
+            <label class="form-label" for="codigo">Código da Ação</label>
+            <input 
+              type="text" 
+              id="codigo" 
+              name="codigo" 
+              class="form-input" 
+              placeholder="Ex: PETR4, VALE3, ITUB4"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nome_empresa">Nome da Empresa</label>
+            <input 
+              type="text" 
+              id="nome_empresa" 
+              name="nome_empresa" 
+              class="form-input" 
+              placeholder="Digite o nome da empresa"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="setor">Setor</label>
+            <input 
+              type="text" 
+              id="setor" 
+              name="setor" 
+              class="form-input" 
+              placeholder="Ex: Tecnologia, Bancos, Petróleo"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="preco">Preço Atual (R$)</label>
+            <input 
+              type="number" 
+              id="preco" 
+              name="preco" 
+              class="form-input" 
+              placeholder="0.00"
+              step="0.01"
+              min="0"
+              required
+            >
+          </div>
+
+          <button type="submit" class="btn btn-submit">Cadastrar Ação</button>
+        </form>
+      </div>
+
+      <!-- Tabela de Ações -->
+      <div class="card">
+        <div class="card-title">
+          <span>Ações Cadastradas</span>
+          <span id="totalAcoes" style="font-size: 1rem; color: var(--color-accent);">0 ações</span>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Código</th>
+                <th>Nome da Empresa</th>
+                <th>Setor</th>
+                <th>Preço Atual</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaAcoes">
+              <tr>
+                <td colspan="6" class="empty-state">
+                  Nenhuma ação cadastrada ainda. Use o formulário acima para adicionar.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Sistema CRUD. Desenvolvido para demonstração acadêmica.</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

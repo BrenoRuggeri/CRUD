@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Sistema CRUD</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-content">
+      <a href="#" class="logo">Sistema CRUD</a>
+      <div class="header-buttons">
+        <a href="acoes.html" class="btn btn-outline" id="registerBtn">Ações</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1>Registro de Usuários</h1>
+        <p>Sistema completo de gerenciamento - Create, Read, Update, Delete</p>
+      </section>
+
+      <!-- Formulário de Registro -->
+      <div class="card">
+        <div class="card-title">
+          <span>Cadastrar Novo Usuário</span>
+        </div>
+        <form id="registroForm">
+          <div class="form-group">
+            <label class="form-label" for="nome">Nome Completo</label>
+            <input 
+              type="text" 
+              id="nome" 
+              name="nome" 
+              class="form-input" 
+              placeholder="Digite seu nome completo"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">E-mail</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-input" 
+              placeholder="seu@email.com"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="senha">Senha</label>
+            <input 
+              type="password" 
+              id="senha" 
+              name="senha" 
+              class="form-input" 
+              placeholder="Digite uma senha segura"
+              required
+            >
+          </div>
+
+          <button type="submit" class="btn btn-submit">Cadastrar Usuário</button>
+        </form>
+      </div>
+
+      <!-- Formulário de Edição -->
+      <div class="card">
+        <div class="card-title">
+          <span>Editar Usuário</span>
+        </div>
+        <form id="formEdicao">
+          <div class="form-group">
+            <label class="form-label" for="editId">ID do Usuário</label>
+            <input 
+              type="number" 
+              id="editId" 
+              name="editId" 
+              class="form-input" 
+              placeholder="Digite o ID do usuário"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editNome">Nome Completo</label>
+            <input 
+              type="text" 
+              id="editNome" 
+              name="editNome" 
+              class="form-input" 
+              placeholder="Digite o novo nome"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editEmail">E-mail</label>
+            <input 
+              type="email" 
+              id="editEmail" 
+              name="editEmail" 
+              class="form-input" 
+              placeholder="Digite o novo email"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editSenha">Nova Senha (deixe em branco para manter)</label>
+            <input 
+              type="password" 
+              id="editSenha" 
+              name="editSenha" 
+              class="form-input" 
+              placeholder="Digite a nova senha (opcional)"
+            >
+          </div>
+
+          <button type="submit" class="btn btn-submit">Editar</button>
+        </form>
+      </div>
+
+      <!-- Tabela de Usuários -->
+      <div class="card">
+        <div class="card-title">
+          <span>Usuários Cadastrados</span>
+          <span id="totalUsuarios" style="font-size: 1rem; color: var(--color-accent);">0 usuários</span>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>
+                  <input type="checkbox" id="selectAll">
+                </th>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Data de Cadastro</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaUsuarios">
+              <tr>
+                <td colspan="5" class="empty-state">
+                  Nenhum usuário cadastrado ainda. Use o formulário acima para adicionar.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Botão de Ação -->
+        <div class="action-buttons">
+          <button class="btn btn-delete" id="btnDeletar">
+            Excluir Selecionados
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Sistema CRUD. Desenvolvido para demonstração acadêmica.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
